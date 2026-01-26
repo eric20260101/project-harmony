@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
 import {
   Select,
   SelectContent,
@@ -31,9 +30,9 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Separator } from "@/components/ui/separator";
-import { Trash2, Calendar, Flag, Loader2 } from "lucide-react";
+import { Trash2, Calendar, Loader2 } from "lucide-react";
 import { format } from "date-fns";
-import { cn } from "@/lib/utils";
+import { TaskComments } from "./TaskComments";
 
 interface TaskDetailSheetProps {
   task: Task | null;
@@ -199,6 +198,11 @@ export function TaskDetailSheet({ task, open, onOpenChange }: TaskDetailSheetPro
             </span>
           </div>
         </div>
+
+        <Separator className="my-6" />
+
+        {/* Comments Section */}
+        <TaskComments taskId={task.id} />
 
         <Separator className="my-6" />
 
